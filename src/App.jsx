@@ -16,7 +16,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + Custom Slider</h1>
-
+      
       <div>
         <RangeSlider min={-50} max={-5}  value={-5} step={1} />
         <RangeSlider min={0} max={200}  value={100} step={5} />

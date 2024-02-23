@@ -1,11 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./range-sliders.css";
 
+/**
+ *
+ * @param {min, max, value, step} param
+ * @returns
+ */
+
 function RangeSlider({ min, max, value, step }) {
+  /**
+   *  Range Slider Hooks
+   */
+
   const [sliderRange, setSliderRange] = useState(value);
   const [inputValue, setInputValue] = useState(value);
   const sliderRef = useRef(null);
 
+  // Updates the input field and the slider bar when a new value is entered by typing
   function handleSliderInput() {
     const range = max - min;
     const distance = sliderRef.current.value - min;
@@ -17,8 +28,8 @@ function RangeSlider({ min, max, value, step }) {
     setInputValue(sliderRef.current.value);
   }
 
+  // Sets the initial values for both fields when the component mounts
   function handleNumberInput(element) {
-
     const newValue = parseInt(element.target.value);
 
     if (newValue < min) {
@@ -31,7 +42,7 @@ function RangeSlider({ min, max, value, step }) {
       setInputValue(newValue);
       const range = max - min;
       const distance = newValue - min;
-      const parsentAge = (distance/range)*100;
+      const parsentAge = (distance / range) * 100;
       setSliderRange(parsentAge);
     }
   }
